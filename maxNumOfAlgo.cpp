@@ -6,37 +6,35 @@
 // Result = 4
 
 
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
-typedef long long       ll;
-typedef vector<int>     vi;
-typedef vector<ll>      vll;
-typedef vector<vi>      vvi;
-typedef vector<vll>      vvll;
-typedef pair<int,int>   pii;
-typedef pair<ll,ll>     pll;
-typedef vector<pii>     vpii;
-typedef vector<string>     vstr;
-typedef vector<pll>     vpll;
- 
- 
- 
-int main()
-{
-    int X = 15, N = 6, cnt=0;
-    vi a(N);
-    a = {4,3,8,4,7,3};
 
-    sort(a.begin(), a.end());
+int main() {
+    int N, X;
+    cout << "Enter total time available (X) and number of algorithms (N): ";
+    cin >> X >> N;
 
-    for( int i = 0 ; i < N; i++){
-        if( a[i] <= X){
-            X -= a[i];
-            cnt++;
-        }else break;
+    vector<int> a(N);
+    cout << "Enter time required for each algorithm: ";
+    for (int i = 0; i < N; i++) {
+        cin >> a[i];
     }
- 
- 
-    cout<<"Total algo she can learn is  : "<< cnt;
-return 0;   
+
+    sort(a.begin(), a.end());  // Sorting to prioritize smaller times
+
+    int count = 0;
+    for (int i = 0; i < N; i++) {
+        if (X >= a[i]) {
+            X -= a[i];
+            count++;
+        } else {
+            break;
+        }
+    }
+
+    cout << "Total algorithms she can learn: " << count << endl;
+    return 0;
 }
