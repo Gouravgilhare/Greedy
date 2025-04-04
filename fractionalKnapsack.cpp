@@ -1,3 +1,13 @@
+// Given the weights and profits of N items, in the form of {profit, weight} put these items in a knapsack of capacity W to get the maximum total profit in the knapsack. In Fractional Knapsack, we can break items for maximizing the total value of the knapsack.
+// Input: arr[] = {60, 10, 
+//                 100,20
+//                 120,30}, 
+//                 W=50
+// Output: 240 
+ 
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long       ll;
@@ -7,7 +17,7 @@ typedef vector<vi>      vvi;
 typedef vector<vll>      vvll;
 typedef pair<int,int>   pii;
 typedef pair<ll,ll>     pll;
-typedef vector<pii>     vpii;
+typedef vector<pii>     vpii; 
 typedef vector<string>     vstr;
 typedef vector<pll>     vpll;
  
@@ -50,7 +60,7 @@ int main()
             W -= amt;
         }else {
 
-            float frac = W/weight[i];
+            // float frac = W/weight[i];
             total += value[i];
         }
         i++; 
